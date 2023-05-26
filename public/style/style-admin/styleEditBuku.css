@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* :root{
+    --blue: #4865FC;
+} */
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #e4e9f7;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+
+/* ---------------------------------------- SIDE NAVBAR AREA ---------------------------------------- */
+.navside{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #4865FC;
+    border-left: 10px solid #4865FC;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navside ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navside ul li{
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.navside ul li:hover{
+    background-color: #e4e9f7;
+}
+
+.navside ul .webname{
+    left: 0;
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navside ul .webname a{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.navside ul .navAdd{
+    background-color: #e4e9f7;
+}
+
+.navside ul li a{
+    color: white;
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+}
+
+.navside ul li a:hover{
+    color: #4865FC;
+}
+
+.navside ul .navAdd a{
+    color: #4865FC;
+}
+
+.navside ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navside ul li a .icon img{
+    position: absolute;
+    height: 80%;
+    object-fit: fill;
+}
+
+.navside ul li a .icon ion-icon{
+    font-size: 1.75rem;
+}
+
+.navside ul li a .icon i{
+    font-size: 1.5rem;
+}
+
+.navside ul li a .title{
+    display: block;
+    position: relative;
+    padding: 0 10px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.navside ul .devider span{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    display: block;
+    margin: 10px 0;
+    left: 0%;
+    width: 150%;
+    row-gap: 10px;
+    height: 2px;
+    background-color: #d9d9d9;
+}
+
+/* ---------------------------------------- MAIN BODY AREA ---------------------------------------- */
+.content{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: #e4e9f7;
+    transition: 0.5s;
+}
+
+.content.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+
+.navtop{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.toggle{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: #4865FC;
+    cursor: pointer;
+}
+
+.navside.active{
+    width: 80px;
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    padding: 5px 20px;
+    padding-left: 50px;
+    font-size: 1em;
+    border-radius: 40px;
+    outline: none;
+    border: 2px solid #d9d9d9;
+}
+
+.search label ion-icon{
+    position: absolute;
+    left: 20px;
+    font-size: 1.2em;
+}
+
+.admins{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.admins img{
+    position: absolute;
+    height: 100%;
+    object-fit: fill;
+}
+
+.addForm{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card{
+    margin-top: 3%;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-header{
+    background-color: #4865FC;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid gray;
+    line-height: 1.5em;
+}
+
+.card-body{
+    width: 100%;
+    padding: 10px;
+}
+
+.card-body form .form-group{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    line-height: 2em;
+    margin-bottom: 10px;
+}
+
+.card-body form .form-group input{
+    position: relative;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.card-body form .form-group textarea{
+    position: relative;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.card-body form .form-group select{
+    position: relative;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+.card-body form .button{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    height: 35px;
+}
+
+.card-body form .button a{
+    height: 35px;
+}
+
+.card-body form .button .btn-save{
+    width: 60px;
+    border: none;
+    background-color: green;
+    border-radius: 3px;
+    color: white;
+}
+
+.card-body form .button .btn-save:hover{
+    background-color: #085308;
+    cursor: pointer;
+}
+
+.card-body form .button .btn-clear{
+    width: 80px;
+    border: none;
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+}
+
+.user-table{
+    width: 100%;
+    padding: 20px;
+}
+
+.card table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr{
+    border: 1px solid gray;
+}
+
+th{
+    border: 1px solid gray;
+    padding: 5px;
+    text-align: left;
+    font-weight: 700;
+}
+
+td{
+    border: 1px solid gray;
+    padding: 5px;
+    text-align: left;
+}
+
+tr td:last-child{
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    padding: 10px;
+}
+
+tr td:last-child div{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+tr td:last-child div a{
+    color: white;
+}
+
+tr td:last-child .editbook{
+    background-color: green;
+    border-radius: 5px;
+}
+
+tr td:last-child .deletebook{
+    background-color: red;
+    border-radius: 5px;
+}
+
+.paginate{
+    margin-top: 20px;
+    padding: 7px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.paginate ul{
+    display: flex;
+    gap: 10px;
+}
+
+.paginate ul li{
+    list-style: none;
+}
+
+.paginate ul li a{
+    text-decoration: none;
+}
+
+/* table tbody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+}
+
+table tbody .head{
+    display: flex;
+    text-align: left;
+} */
