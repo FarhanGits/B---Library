@@ -41,18 +41,20 @@
   </nav>
 
 
-  <form action="/" method="POST" class="koleksi">
+  <form action="/login" method="POST" class="koleksi">
     <div class="column-left" style="background-color:white;">
-      <img src="{{asset('img/img-user/gambar-cover-buku/'.$data->images)}}" alt="Gambar Produk">
+      <img src="{{asset('img/img-user/gambar-cover-buku/'.$data->images)}}" alt="{{$data->judulBuku}}">
     </div>
     <div class="column-middle" style="background-color:white;">
       <h1 class="boldFont">{{$data->judulBuku}}</h1>
-      <p class="regularFont">{{$data->namaPengarang}}</p>
+      <p class="regularFont">{{$data->namaPengarang}}, {{$data->tahunTerbit}}</p>
       <h2 class="mediumFont">Deskripsi Buku</h2>
       <p class="regularFont">{{$data->keteranganBuku}}</p>
     </div>
-    <div class="column-right" style="background-color:white;">
-      <h2><button class="btn" type="submit">Pilih Buku</button></h2>
+    <div class="column-right useBorder">
+      <p class="boldFont">Atur Tanggal Peminjaman</p>
+      <input type="date" name="tanggalPinjam" id="" class="date">
+      <button class="btn" type="submit">Pilih Buku</button>
     </div>
   </form>
 </body>

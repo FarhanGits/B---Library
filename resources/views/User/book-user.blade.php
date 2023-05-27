@@ -43,24 +43,22 @@
         </div>
     </nav>
 
-    <div class="Koleksi">
-        <div class="row">
-            <form action="/peminjaman/{{$data->id}}" method="POST">
-                @csrf
-                <div class="column left" style="background-color:white;">
-                    <img src="{{asset('img/img-user/gambar-cover-buku/'.$data->images)}}" alt="Gambar Produk">
-                </div>
-                <div class="column middle" style="background-color:white;">
-                    <h1>{{$data->judulBuku}}</h1>
-                    <h2>Deskripsi Buku</h2>
-                    <p>{{$data->keteranganBuku}}</p>
-                </div>
-                <div class="column right" style="background-color:white;">
-                    <input type="date" name="tanggalPinjam" id="">
-                    <h2><button class="btn" type="submit">Pilih Buku</button></h2>
-                </div>
-            </form>
+    <form action="/peminjaman/{{$data->id}}" method="POST" class="koleksi">
+        @csrf
+        <div class="column-left">
+            <img src="{{asset('img/img-user/gambar-cover-buku/'.$data->images)}}" alt="{{$data->judulBuku}}">
         </div>
-    </div>
+        <div class="column-middle">
+            <h1 class="boldFont">{{$data->judulBuku}}</h1>
+            <p class="regularFont">{{$data->namaPengarang}}, {{$data->tahunTerbit}}</p>
+            <h2 class="mediumFont">Deskripsi Buku</h2>
+            <p class="regularFont">{{$data->keteranganBuku}}</p>
+        </div>
+        <div class="column-right useBorder">
+            <p class="boldFont">Atur Tanggal Peminjaman</p>
+            <input type="date" name="tanggalPinjam" id="" class="date">
+            <button class="btn" type="submit">Pilih Buku</button>
+        </div>
+    </form>
 </body>
 </html>

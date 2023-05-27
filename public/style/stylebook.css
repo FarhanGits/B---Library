@@ -119,14 +119,14 @@ nav .firstNav .search-box input {
 
 nav .firstNav .search-box a {
   justify-content: end;
-  color: rgb(0, 94, 255);
+  color: #005eff;
 }
 
 /* Page Section */
 .koleksi{
   display: flex;
   flex-direction: row;
-  padding: 47px;
+  padding: 45px;
   justify-content: space-around;
 }
 
@@ -161,7 +161,56 @@ nav .firstNav .search-box a {
 }
 
 .column-right{
+  width: 20% ;
+  padding: 25px;
+  border-radius: 5px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.column-right p{
+  color: #4865FC;
+  margin-bottom: 25px;
+  left: 0;
+  font-size: larger;
+}
+
+input[type="date"]{
+  background-color: #ffffff;
+  border: #4865FC solid;
+  border-width: 2px;
+  padding: 15px;
+  color: #4865FC;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  left: 0;
+}
+
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.column-right button{
+  height: 35px;
+  background-color: #4865FC;
+  color: white;
+  font-size: medium;
+  border: none;
+  border-radius: 5px;
+}
+
+.column-right button:hover{
+  background-color: #ffffff;
+  border: #4865FC solid;
+  border-width: 2px;
+  color: #4865FC;
+  cursor: pointer;
 }
 
 
