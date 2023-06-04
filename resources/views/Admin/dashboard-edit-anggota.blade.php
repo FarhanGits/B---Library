@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome User</title>
+    <title>Daftar Anggota</title>
     <link rel="stylesheet" href="{{ asset('style/style-admin/styleEditAnggota.css') }}">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous"> -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -42,7 +42,7 @@
                 </li>
                 <li class="navReturn">
                     <a href="/pengembalianbuku">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="icon"><i class="fa-solid fa-rotate-left"></i></span>
                         <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>

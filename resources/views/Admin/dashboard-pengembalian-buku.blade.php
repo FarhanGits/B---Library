@@ -41,7 +41,7 @@
                 </li>
                 <li class="navReturn">
                     <a href="/pengembalianbuku">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="icon"><i class="fa-solid fa-rotate-left"></i></ion-icon></span>
                         <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>
@@ -126,19 +126,22 @@
                                         <td>{{date('d M Y', strtotime($item->tanggalKembali))}}</td>
                                         <td>
                                             @if ($item->tanggalKembaliAsli == null)
+                                                <p style="color: grey">Belum Kembali</p>
                                             @else
                                                 {{date('d M Y', strtotime($item->tanggalKembaliAsli))}}
                                             @endif
                                         </td>
                                         <td>
                                             @if ($item->tanggalKembaliAsli == null)
-                                                <p style="color: grey">Buku Belum Kembali</p>
-                                            @else
-                                                {{date('d M Y', strtotime($item->tanggalKembaliAsli))}}
+                                                <p style="color: grey">Masih Dipinjam</p>
+                                            @elseif ($item->tanggalKembaliAsli <= $item->tanggalKembali)
+                                                <p style="color: green">- Tidak denda -</p>
+                                            @elseif ($item->tanggalKembaliAsli > $item->tanggalKembali)
+                                                <p style="color: red">- Denda -</p>
                                             @endif
                                         </td>
                                         <td class="editbutton">
-                                            <a href="/confirmkembali/{{$item->id}}"><i class="fa-solid fa-right-left" style="color: green"></i></a>
+                                            <a href="/konfirmasipengembalian/{{$item->id}}"><i class="fa-solid fa-right-left" style="color: green"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach

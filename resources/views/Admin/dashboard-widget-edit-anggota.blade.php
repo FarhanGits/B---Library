@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome User</title>
+    <title>Edit Identitas Anggota</title>
     <link rel="stylesheet" href="{{ asset('style/style-admin/styleWidgetAnggota.css') }}">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
@@ -41,7 +41,7 @@
                 </li>
                 <li class="navReturn">
                     <a href="/pengembalianbuku">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="icon"><i class="fa-solid fa-rotate-left"></i></span>
                         <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>
