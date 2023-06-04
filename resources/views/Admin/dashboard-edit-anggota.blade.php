@@ -125,11 +125,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="Input Nomor Telepon anda disini!" required minlength="12" maxlength="13">
+                                <input type="text" name="email" class="form-control" placeholder="Input Nomor Telepon anda disini!">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" name="password" class="form-control" placeholder="Input Nomor Telepon anda disini!" required minlength="12" maxlength="13">
+                                <input type="text" name="password" class="form-control" placeholder="Input Nomor Telepon anda disini!" required>
                             </div>
                             {{-- <div class="form-group">
                                 <label>Masukkan Foto:</label>

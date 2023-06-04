@@ -120,7 +120,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="namaAnggota" value="{{$dataAnggota->email}}" class="form-control" required>
+                                <input type="text" name="email" value="{{$dataAnggota->email}}" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" value="{{$dataAnggota->email}}" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Sebagai</label>
