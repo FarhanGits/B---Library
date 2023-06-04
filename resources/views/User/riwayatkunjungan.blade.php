@@ -68,7 +68,13 @@
                                 <td>{{$item->book->namaPengarang}}</td>
                                 <td>{{date('d M Y', strtotime($item->tanggalPinjam))}}</td>
                                 <td>{{date('d M Y', strtotime($item->tanggalKembali))}}</td>
-                                <td>{{$item->tanggalKembaliAsli}}</td>
+                                <td>
+                                    @if ($item->tanggalKembaliAsli == null)
+                                    
+                                    @else
+                                        {{date('d M Y', strtotime($item->tanggalKembaliAsli))}}
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($item->tanggalKembaliAsli == null)
                                         <p style="color: grey">- Belum kembali -</p>

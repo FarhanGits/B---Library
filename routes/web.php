@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\DfAnggotaController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DfBukuController;
 use App\Http\Controllers\LogRegController;
 use App\Http\Controllers\PeminjamanController;
 use App\Models\DfBuku;
+use App\Models\Peminjaman;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +26,11 @@ use App\Models\DfBuku;
 
 // ============================== Admin ==============================
 
-// Route::middleware();
-
 Route::group(['middleware' => ['auth','hakakses:Admin']], function(){
     Route::get('/dashboard', function(){
-        return view('Admin/dashboard-admin');
+        $anggota = Peminjaman::with(['user', 'book'])->get();
+        $buku = DfBuku::all();
+        return view('Admin/dashboard-admin', compact('anggota', 'buku'));
     })->name('dashboard');
     
     Route::get('/akun', function(){
@@ -36,7 +38,8 @@ Route::group(['middleware' => ['auth','hakakses:Admin']], function(){
     })->name('akun');
     
     Route::get('/keterlambatan', function(){
-        return view('Admin/dashboard-keterlambatan');
+        $datapinjam = Peminjaman::with(['user', 'book'])->get();
+        return view('Admin/dashboard-keterlambatan', compact('datapinjam'));
     })->name('keterlambatan');
     
     Route::get('/dfbuku',[DfBukuController::class, 'indexBuku'])->name('dfbuku');
@@ -44,6 +47,10 @@ Route::group(['middleware' => ['auth','hakakses:Admin']], function(){
     Route::get('/tampildata/{id}',[DfBukuController::class, 'tampildata'])->name('tampildata'); // -> Menampilkan halaman edit data yang dibuat
     Route::post('/editdata/{id}',[DfBukuController::class, 'editdata'])->name('editdata');
     Route::get('/deletedata/{id}',[DfBukuController::class, 'deletedata'])->name('deletedata');
+    
+    Route::get('/pengembalianbuku',[PeminjamanController::class, 'viewPengembalian'])->name('pengembalianbuku');
+    Route::get('/konfirmasipengembalian/{id}',[PeminjamanController::class, 'logKonfirmasi'])->name('konfirmasipengembalian');
+    Route::post('/bukukembali/{id}',[PeminjamanController::class, 'bukuKembali'])->name('bukukembali');
     
     Route::get('/dfanggota',[DfAnggotaController::class, 'indexAnggota'])->name('dfanggota');
     Route::post('/insertdataanggota',[DfAnggotaController::class, 'insertdataanggota'])->name('insertdataanggota');
@@ -61,7 +68,9 @@ Route::group(['middleware' => ['auth','hakakses:User']], function(){
     })->name('userhome');
     
     Route::get('/riwayatkunjungan', function(){
-        return view('User/riwayatkunjungan');
+        $user = auth()->user();
+        $datapinjam = Peminjaman::with(['user', 'book'])->where('user_id', $user->id)->get();
+        return view('User/riwayatkunjungan', compact('datapinjam'));
     })->name('riwayatkunjungan');
 
     Route::get('/daftarkoleksi-user', [DfBukuController::class, 'daftarKoleksiUser'])->name('daftarkoleksi-user');
@@ -81,7 +90,10 @@ Route::group(['middleware' => ['auth','hakakses:User']], function(){
     
     Route::get('/dashboardriwayatbuku', function(){
         return view('User/dashboard-riwayat-buku');
-    })->name('dashboardriwayatbuku'); 
+    })->name('dashboardriwayatbuku');
+
+    // === Peminjaman
+    Route::post('/peminjaman', [PeminjamanController::class, 'pinjamBuku'])->name('peminjaman');
 });
 
 // // // // //
@@ -147,6 +159,3 @@ Route::get('/register-admin',[LogRegController::class, 'registerAdminPage'])->na
 Route::post('/register-administrator',[LogRegController::class, 'registerAdmin'])->name('register-administrator');
 
 Route::get('/logout-admin',[LogRegController::class, 'logoutAdmin'])->name('logout-admin');
-
-//Peminjaman
-Route::post('/peminjaman/{buku}', [PeminjamanController::class, 'pinjam']);

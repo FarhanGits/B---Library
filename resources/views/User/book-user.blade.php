@@ -43,8 +43,9 @@
         </div>
     </nav>
 
-    <form action="/peminjaman/{{$data->id}}" method="POST" class="koleksi">
+    <form action="/peminjaman" method="POST" class="koleksi" enctype="multipart/form-data">
         @csrf
+        {{-- {{$users->NIK}} --}}
         <div class="column-left">
             <img src="{{asset('img/img-user/gambar-cover-buku/'.$data->images)}}" alt="{{$data->judulBuku}}">
         </div>
@@ -55,9 +56,11 @@
             <p class="regularFont">{{$data->keteranganBuku}}</p>
         </div>
         <div class="column-right useBorder">
+            <input type="hidden" name="user_id" value="{{$users->id}}">
+            <input type="hidden" name="book_id" value="{{$data->id}}">
             <p class="boldFont">Atur Tanggal Peminjaman</p>
             <input type="date" name="tanggalPinjam" id="" class="date">
-            <button class="btn" type="submit">Pilih Buku</button>
+            <button class="btn" type="submit">Pinjam Buku</button>
         </div>
     </form>
 </body>
