@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\DfBuku;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DfBukuController extends Controller
 {
@@ -74,6 +76,7 @@ class DfBukuController extends Controller
 
     public function detailBukuUser($id){
         $data = DfBuku::find($id);
-        return view('User/book-user', compact('data'));
+        $users = Auth::user();
+        return view('User/book-user', compact('data', 'users'));
     }
 }

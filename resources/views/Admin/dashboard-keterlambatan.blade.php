@@ -105,81 +105,30 @@
                                 <th>Nama Buku</th>
                                 <th>Peminjam</th>
                                 <th>Tanggal Pinjam</th>
+                                <th>Tanggal Tenggat</th>
                                 <th>Tanggal Kembali</th>
                                 <th>Status Denda</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Fariska Dwi</td>
-                                <td>2 Maret 2023</td>
-                                <td>9 Maret 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Manusia Setengah Salmon</td>
-                                <td>Daffa Farhan</td>
-                                <td>12 Januari 2023</td>
-                                <td>17 Januari 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Filsafat Pendidikan</td>
-                                <td>Daffa Farhan</td>
-                                <td>20 Desember 2022</td>
-                                <td>29 Desember 2022</td>
-                                <td class="due-late">Didenda</td>
-                            </tr>
-                            <tr>
-                                <td>Laut Bercerita</td>
-                                <td>Daffa Farhan</td>
-                                <td>7 Desember 2022</td>
-                                <td>13 Maret 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Pulang</td>
-                                <td>Fariska Dwi</td>
-                                <td>23 November 2022</td>
-                                <td>30 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Filosofi Kopi</td>
-                                <td>Fariska Dwi</td>
-                                <td>15 November 2022</td>
-                                <td>22 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Cinta Brontosaurus</td>
-                                <td>Daffa Farhan</td>
-                                <td>2 November 2022</td>
-                                <td>16 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Daffa Farhan</td>
-                                <td>17 Oktober 2022</td>
-                                <td>24 Oktober 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Fariska Dwi</td>
-                                <td>10 September 2022</td>
-                                <td>19 September 2022</td>
-                                <td class="due-late">Didenda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Fariska Dwi</td>
-                                <td>10 Agustus 2022</td>
-                                <td>17 Agustus 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
+                            @foreach ($datapinjam as $item)
+                                <tr>
+                                    <td>{{$item->book->judulBuku}}</td>
+                                    <td>{{$item->user->namaAnggota}}</td>
+                                    <td>{{date('d M Y', strtotime($item->tanggalPinjam))}}</td>
+                                    <td>{{date('d M Y', strtotime($item->tanggalKembali))}}</td>
+                                    <td>{{$item->tanggalKembaliAsli}}</td>
+                                    <td>
+                                        @if ($item->tanggalKembaliAsli == null)
+                                            <p style="color: grey">- Belum kembali -</p>
+                                        @elseif ($item->tanggalKembaliAsli <= $item->tanggalKembali)
+                                            <p style="color: green">- Tidak denda -</p>
+                                        @elseif ($item->tanggalKembaliAsli > $item->tanggalKembali)
+                                            <p style="color: red">- Denda -</p>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
