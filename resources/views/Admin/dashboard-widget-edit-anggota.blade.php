@@ -33,16 +33,16 @@
                         <span class="title">Anggota</span>
                     </a>
                 </li>
-                <li class="navCollection">
-                    <a href="/dashboard">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
-                        <span class="title">Daftar Koleksi</span>
-                    </a>
-                </li>
                 <li class="navAdd">
                     <a href="/dfbuku">
                         <span class="icon"><ion-icon name="add-circle"></ion-icon></span>
                         <span class="title">Tambah Buku</span>
+                    </a>
+                </li>
+                <li class="navReturn">
+                    <a href="/pengembalianbuku">
+                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>
                 <li class="navDue">
@@ -123,18 +123,17 @@
                                 <input type="text" name="namaAnggota" value="{{$dataAnggota->email}}" class="form-control" required>
                             </div>
                             <div class="form-group">
+                                <label>Sebagai</label>
+                                <select class="form-control" name="role" required>
+                                    <option value="User">User</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Jenis Kelamin</label>
                                 <select class="form-control" name="jenisKelamin">
                                     <option selected value="{{$dataAnggota->jenisKelamin}}"></option>
                                     <option value="Pria">Pria</option>
                                     <option value="Wanita">Wanita</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Sebagai</label>
-                                <select class="form-control" name="role">
-                                    <option selected value="{{$dataAnggota->role}}"></option>
-                                    <option value="User">User</option>
                                 </select>
                             </div>
                             <div class="button">

@@ -34,16 +34,16 @@
                         <span class="title">Anggota</span>
                     </a>
                 </li>
-                <li class="navCollection">
-                    <a href="/dashboard">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
-                        <span class="title">Daftar Koleksi</span>
-                    </a>
-                </li>
                 <li class="navAdd">
                     <a href="/dfbuku">
                         <span class="icon"><ion-icon name="add-circle"></ion-icon></span>
                         <span class="title">Tambah Buku</span>
+                    </a>
+                </li>
+                <li class="navReturn">
+                    <a href="/pengembalianbuku">
+                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>
                 <li class="navDue">

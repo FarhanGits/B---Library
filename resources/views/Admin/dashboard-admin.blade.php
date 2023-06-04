@@ -33,16 +33,16 @@
                         <span class="title">Anggota</span>
                     </a>
                 </li>
-                <li class="navCollection">
-                    <a href="/dashboard">
-                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
-                        <span class="title">Daftar Koleksi</span>
-                    </a>
-                </li>
                 <li class="navAdd">
                     <a href="/dfbuku">
                         <span class="icon"><ion-icon name="add-circle"></ion-icon></span>
                         <span class="title">Tambah Buku</span>
+                    </a>
+                </li>
+                <li class="navReturn">
+                    <a href="/pengembalianbuku">
+                        <span class="icon"><ion-icon name="list-circle"></ion-icon></span>
+                        <span class="title">Pengembalian Buku</span>
                     </a>
                 </li>
                 <li class="navDue">
@@ -148,66 +148,20 @@
                         <thead>
                             <tr>
                                 <th>Nama</th>
-                                <th>Asal Sekolah</th>
+                                <th>Alamat</th>
                                 <th>Buku Dipinjam</th>
                                 <th>Tanggal</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Michael Suhendar</td>
-                                <td>SDN Kepatihan</td>
-                                <td>2</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
-                            <tr>
-                                <td>Mike Widjaja</td>
-                                <td>SD Negeri Kauman I</td>
-                                <td>1</td>
-                                <td>2 Maret 2023</td>
-                            </tr>
+                            @foreach ($anggota->take(10) as $item)
+                                <tr>
+                                    <td>{{$item->user->namaAnggota}}</td>
+                                    <td>{{$item->user->alamatPengguna}}</td>
+                                    <td>{{$item->book->judulBuku}}</td>
+                                    <td>{{date('d M Y', strtotime($item->tanggalPinjam))}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -225,76 +179,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
-                            <tr>
-                                <td class="bookNicon">
-                                    <ion-icon name="book"></ion-icon>
-                                    <span>Ranjat Kembang</span>
-                                </td>
-                                <td class="addDate">1 Januari 2023</td>
-                            </tr>
+                            @foreach ($buku as $item)
+                                <tr>
+                                    <td class="bookNicon">
+                                        <ion-icon name="book"></ion-icon>
+                                        <span>{{$item->judulBuku}}</span>
+                                    </td>
+                                    <td class="addDate">{{date('d M Y', strtotime($item->created_at))}}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
