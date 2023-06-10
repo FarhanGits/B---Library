@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Kunjungan</title>
     <link rel="stylesheet" href="{{asset('style/style-user/stylerk.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -38,7 +39,7 @@
             <ul>
                 <li><a href="/daftarkoleksi-user" class="regularFont">Daftar Koleksi</a></li>
                 <li><a href="/riwayatkunjungan" class="regularFont">Riwayat Kunjungan</a></li>
-                <li><a href="/dashboardpusling" class="regularFont">Jadwal Pusling</a></li>
+                {{-- <li><a href="/dashboardpusling" class="regularFont">Jadwal Pusling</a></li> --}}
             </ul>
         </div>
     </nav>
@@ -56,7 +57,7 @@
                             <th>Nama Buku</th>
                             <th>Penulis</th>
                             <th>Tanggal Pinjam</th>
-                            <th>Tanggal Tenggat</th>
+                            <th>Jatuh Tempo</th>
                             <th>Tanggal Dikembalikan</th>
                             <th>Status Denda</th>
                         </tr>

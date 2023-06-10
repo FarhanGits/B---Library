@@ -13,22 +13,22 @@
         <form action="/register-user" method="POST">
             @csrf
             <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="namaAnggota" required>
+            <input type="text" id="nama" name="namaAnggota" required maxlength="100">
         
             <label for="nik">NIK:</label>
-            <input type="text" id="nik" name="NIK" required>
+            <input type="text" id="nik" name="NIK" required minlength="16">
         
             <label for="alamat">Alamat:</label>
             <textarea id="alamat" name="alamatPengguna" required></textarea required>
 
             <label for="nomor_telepon">Nomor Telepon:</label>
-            <input type="text" id="noTelepon" name="noTelepon" required>
+            <input type="text" id="noTelepon" name="noTelepon" required minlength="12" maxlength="13">
         
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required onclick="ValidateEmail(document.insertdata.email)">
         
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required minlength="8">
         
             <label for="jenis_kelamin">Jenis Kelamin:</label>
             <select id="jenis_kelamin" name="jenisKelamin" required>
@@ -48,28 +48,6 @@
         </form>
     </div>
 
-    {{-- <script>
-
-        let btn = document.getElementsByClassName("button")[0];
-        btn.addEventListener("click", function(){
-            alert("SUKSES");
-        });
-
-        function Daftar() {
-            var namaLengkap = document.getElementById("nama lengkap").value;
-            var userName = document.getElementById("username").value;
-            var mail = document.getElementById("email").value;
-            var nIK = document.getElementById("nik").value;
-            var noTelp = document.getElementById("notelp").value;
-            var passworD = document.getElementById("password").value;
-            var ulangPassword = document.getElementById("ulang password").value;
-            if((namaLengkap === "riska") && (userName === "123aaa") && (mail === "@gmail.com") && (nIK === "12345678910") && (noTelp === "08295320445959") && (passworD === "riskabdjb") && (ulangPassword === "riskabdjb")) {
-                alert("Congratss!! your login is success!");
-            }
-            else {
-                alert("Sorry!! Failed!")
-            }
-        }
-    </script> --}}
+    <script src="{{asset('script/scriptDU.js')}}"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar Koleksi</title>
     <link rel="stylesheet" href="{{asset('style/styledk.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -35,7 +36,7 @@
             <ul>
                 <li><a href="/daftarkoleksi" class="regularFont">Daftar Koleksi</a></li>
                 <li><a href="/login" class="regularFont">Riwayat Kunjungan</a></li>
-                <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li>
+                {{-- <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li> --}}
             </ul>
         </div>
     </nav>

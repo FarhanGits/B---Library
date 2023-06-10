@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome User</title>
     <link rel="stylesheet" href="{{asset('style/style-user/styleJadwalPusling.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
 </head>

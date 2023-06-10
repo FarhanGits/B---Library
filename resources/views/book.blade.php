@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="{{asset('style/stylebook.css')}}">
+  <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
   <title>{{$data->judulBuku}}</title>
 </head>
 
@@ -35,7 +36,7 @@
         <ul>
             <li><a href="/daftarkoleksi" class="regularFont">Daftar Koleksi</a></li>
             <li><a href="/login" class="regularFont">Riwayat Kunjungan</a></li>
-            <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li>
+            {{-- <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li> --}}
         </ul>
     </div>
   </nav>

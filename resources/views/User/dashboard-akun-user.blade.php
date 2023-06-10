@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome User</title>
     <link rel="stylesheet" href="{{asset('style/style-user/styleAkun.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
 </head>
@@ -33,12 +34,12 @@
                         <span class="title">Riwayat Buku</span>
                     </a>
                 </li>
-                <li class="navSchedule">
+                {{-- <li class="navSchedule">
                     <a href="/dashboardpusling">
                         <span class="icon"><ion-icon name="bus-sharp"></ion-icon></span>
                         <span class="title">Jadwal Pusling</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="navAccount">
                     <a href="/dashboardakunuser">
                         <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>

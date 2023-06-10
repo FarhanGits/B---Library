@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('judulBuku');
             $table->string('namaPengarang');
-            $table->string('keteranganBuku');
+            $table->longText('keteranganBuku');
             $table->integer('tahunTerbit');
             $table->string('genre');
             $table->string('images');
+            $table->enum('status', ['Available', 'Not Available'])->default('Available');
 
             $table->timestamps();
         });

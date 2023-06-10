@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riwayat Buku</title>
     <link rel="stylesheet" href="{{asset('style/style-user/styleRiwayatBuku.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
 </head>
@@ -33,12 +34,12 @@
                         <span class="title">Riwayat Buku</span>
                     </a>
                 </li>
-                <li class="navSchedule">
+                {{-- <li class="navSchedule">
                     <a href="/dashboardpusling">
                         <span class="icon"><ion-icon name="bus-sharp"></ion-icon></span>
                         <span class="title">Jadwal Pusling</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="navAccount">
                     <a href="/dashboardakunuser">
                         <span class="icon"><ion-icon name="person-sharp"></ion-icon></span>
@@ -93,81 +94,36 @@
                                 <th>Nama Buku</th>
                                 <th>Penulis</th>
                                 <th>Tanggal Pinjam</th>
-                                <th>Tanggal Kembali</th>
+                                <th>Jatuh Tempo</th>
+                                <th>Tanggal Dikembalikan</th>
                                 <th>Status Denda</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Gita Savitri</td>
-                                <td>2 Maret 2023</td>
-                                <td>9 Maret 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Manusia Setengah Salmon</td>
-                                <td>Raditya Dika</td>
-                                <td>12 Januari 2023</td>
-                                <td>17 Januari 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Filsafat Pendidikan</td>
-                                <td>Muhammad Anwar</td>
-                                <td>20 Desember 2022</td>
-                                <td>29 Desember 2022</td>
-                                <td class="due-late">Didenda</td>
-                            </tr>
-                            <tr>
-                                <td>Laut Bercerita</td>
-                                <td>Leila S. Chudori</td>
-                                <td>7 Desember 2022</td>
-                                <td>13 Maret 2023</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Pulang</td>
-                                <td>Leila S. Chudori</td>
-                                <td>23 November 2022</td>
-                                <td>30 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Filosofi Kopi</td>
-                                <td>Dewi Puji Lestari</td>
-                                <td>15 November 2022</td>
-                                <td>22 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Cinta Brontosaurus</td>
-                                <td>Raditya Dika</td>
-                                <td>2 November 2022</td>
-                                <td>16 November 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Gita Savitri</td>
-                                <td>17 Oktober 2022</td>
-                                <td>24 Oktober 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Gita Savitri</td>
-                                <td>10 September 2022</td>
-                                <td>19 September 2022</td>
-                                <td class="due-late">Didenda</td>
-                            </tr>
-                            <tr>
-                                <td>Rentang Kisah</td>
-                                <td>Gita Savitri</td>
-                                <td>10 Agustus 2022</td>
-                                <td>17 Agustus 2022</td>
-                                <td class="on-time">Tidak Denda</td>
-                            </tr>
+                            @foreach ($datapinjam as $item)
+                                <tr>
+                                    <td>{{$item->book->judulBuku}}</td>
+                                    <td>{{$item->book->namaPengarang}}</td>
+                                    <td>{{date('d M Y', strtotime($item->tanggalPinjam))}}</td>
+                                    <td>{{date('d M Y', strtotime($item->tanggalKembali))}}</td>
+                                    <td>
+                                        @if ($item->tanggalKembaliAsli == null)
+                                        
+                                        @else
+                                            {{date('d M Y', strtotime($item->tanggalKembaliAsli))}}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($item->tanggalKembaliAsli == null)
+                                            <p style="color: grey">- Belum kembali -</p>
+                                        @elseif ($item->tanggalKembaliAsli <= $item->tanggalKembali)
+                                            <p style="color: green">- Tidak denda -</p>
+                                        @elseif ($item->tanggalKembaliAsli > $item->tanggalKembali)
+                                            <p style="color: red">- Denda -</p>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

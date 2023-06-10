@@ -105,31 +105,31 @@
                         Form Input Data Anggota
                     </div>
                     <div class="card-body">
-                        <form action="/insertdataanggota" method="POST">
+                        <form action="/insertdataanggota" name="insertdata" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="namaAnggota" class="form-control" placeholder="Input Nama anda disini!" required maxlength="50">
+                                <input type="text" name="namaAnggota" class="form-control" placeholder="Input Nama disini!" required maxlength="100">
                             </div>
                             <div class="form-group">
                                 <label>NIK</label>
-                                <input type="number" name="NIK" class="form-control" placeholder="Input NIK anda disini!" required minlength="16">
+                                <input type="number" name="NIK" class="form-control" placeholder="Input NIK disini!" required minlength="16">
                             </div>
                             <div class="form-group">
                                 <label>Alamat</label>
-                                <textarea class="form-control" name="alamatPengguna" placeholder="Input Alamat anda disini!" required></textarea>
+                                <textarea class="form-control" name="alamatPengguna" placeholder="Input Alamat disini!" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Nomor Telepon</label>
-                                <input type="text" name="noTelepon" class="form-control" placeholder="Input Nomor Telepon anda disini!" required minlength="12" maxlength="13">
+                                <input type="text" name="noTelepon" class="form-control" placeholder="Input Nomor Telepon disini!" required minlength="12" maxlength="13">
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="Input Nomor Telepon anda disini!">
+                                <input type="email" name="email" class="form-control" placeholder="Input Email disini!" onclick="ValidateEmail(document.insertdata.email)">
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" name="password" class="form-control" placeholder="Input Nomor Telepon anda disini!" required>
+                                <input type="password" name="password" class="form-control" placeholder="Input Password disini!" required minlength="8">
                             </div>
                             {{-- <div class="form-group">
                                 <label>Masukkan Foto:</label>

@@ -12,7 +12,7 @@ class DfAnggotaController extends Controller
         if ($request->has('search')) {
             $dataAnggota = User::where('namaAnggota', 'LIKE', '%' .$request->search.'%')->paginate(10);
         } else {
-            $dataAnggota = User::paginate(10);
+            $dataAnggota = User::where('role', 'User')->paginate(10);
         }
         return view('Admin/dashboard-edit-anggota', compact('dataAnggota'));
     }

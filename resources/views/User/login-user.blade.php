@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-Library</title>
     <link rel="stylesheet" href="{{asset('style/style-user/style2.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
 </head>
 <body>
     <div class ="container">

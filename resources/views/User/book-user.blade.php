@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{asset('style/style-user/stylebook-user.css')}}">
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <title>{{$data->judulBuku}}</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
             <ul>
                 <li><a href="/daftarkoleksi-user" class="regularFont">Daftar Koleksi</a></li>
                 <li><a href="/riwayatkunjungan" class="regularFont">Riwayat Kunjungan</a></li>
-                <li><a href="/userhome" class="regularFont">Jadwal Pusling</a></li>
+                {{-- <li><a href="/userhome" class="regularFont">Jadwal Pusling</a></li> --}}
             </ul>
         </div>
     </nav>
@@ -60,8 +61,18 @@
             <input type="hidden" name="book_id" value="{{$data->id}}">
             <p class="boldFont">Atur Tanggal Peminjaman</p>
             <input type="date" name="tanggalPinjam" id="" class="date">
-            <button class="btn" type="submit">Pinjam Buku</button>
+            @if ($data['status'] == 'Available')
+                <button class="btn" type="submit">Pinjam Buku</button>
+            @else
+                <a onclick="alertPinjam()">Buku Sedang Dipinjam</a>
+            @endif
         </div>
     </form>
+
+    <script>
+        function alertPinjam() {
+            alert("Buku {{$data->judulBuku}} Sedang Dipinjam!!");
+        }
+    </script>
 </body>
 </html>

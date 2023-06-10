@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\DfAnggotaController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +29,12 @@ use App\Models\Peminjaman;
 
 Route::group(['middleware' => ['auth','hakakses:Admin']], function(){
     Route::get('/dashboard', function(){
+        $lengthAnggota = User::where('role', 'User')->count();
+        $lengthBuku = DfBuku::count();
+        $lengthPeminjaman = Peminjaman::count();
         $anggota = Peminjaman::with(['user', 'book'])->get();
         $buku = DfBuku::all();
-        return view('Admin/dashboard-admin', compact('anggota', 'buku'));
+        return view('Admin/dashboard-admin', compact('anggota', 'buku', 'lengthBuku', 'lengthAnggota', 'lengthPeminjaman'));
     })->name('dashboard');
     
     Route::get('/akun', function(){
@@ -89,7 +93,9 @@ Route::group(['middleware' => ['auth','hakakses:User']], function(){
     })->name('dashboardpusling');
     
     Route::get('/dashboardriwayatbuku', function(){
-        return view('User/dashboard-riwayat-buku');
+        $user = auth()->user();
+        $datapinjam = Peminjaman::with(['user', 'book'])->where('user_id', $user->id)->get();
+        return view('User/dashboard-riwayat-buku', compact('datapinjam'));
     })->name('dashboardriwayatbuku');
 
     // === Peminjaman

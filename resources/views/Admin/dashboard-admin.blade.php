@@ -94,9 +94,9 @@
             <!-- Highlight in Cards -->
             <div class="cardHighlights">
 
-                <a href="" class="card">
+                <a href="/dfanggota" class="card">
                     <div class="contain">
-                        <div class="amount">100</div>
+                        <div class="amount">{{$lengthAnggota}}</div>
                         <div class="cardName">Total Anggota</div>
                     </div>
                     <div class="cardIcon">
@@ -104,9 +104,9 @@
                     </div>
                 </a>
 
-                <a href="" class="card">
+                <a href="/dfbuku" class="card">
                     <div class="contain">
-                        <div class="amount">500</div>
+                        <div class="amount">{{$lengthBuku}}</div>
                         <div class="cardName">Jumlah Buku</div>
                     </div>
                     <div class="cardIcon">
@@ -114,20 +114,10 @@
                     </div>
                 </a>
 
-                <a href="" class="card">
+                <a href="/keterlambatan" class="card">
                     <div class="contain">
-                        <div class="amount">100</div>
-                        <div class="cardName">Total Anggota</div>
-                    </div>
-                    <div class="cardIcon">
-                        <ion-icon name="people-circle"></ion-icon>
-                    </div>
-                </a>
-
-                <a href="" class="card">
-                    <div class="contain">
-                        <div class="amount">100</div>
-                        <div class="cardName">Total Anggota</div>
+                        <div class="amount">{{$lengthPeminjaman}}</div>
+                        <div class="cardName">Total Peminjaman</div>
                     </div>
                     <div class="cardIcon">
                         <ion-icon name="people-circle"></ion-icon>
@@ -142,7 +132,7 @@
                 <div class="visitHistory">
                     <div class="title">
                         <h2>Riwayat Kunjungan</h2>
-                        <a href="" class="btn">Lihat Semua</a>
+                        <a href="/keterlambatan" class="btn">Lihat Semua</a>
                     </div>
                     <table>
                         <thead>
@@ -170,6 +160,7 @@
                 <div class="newBook">
                     <div class="title">
                         <h2>Buku Baru</h2>
+                        <a href="/dfbuku" class="btn">Lihat Semua</a>
                     </div>
                     <table>
                         <thead>

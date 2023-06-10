@@ -5,11 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B-Library</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="{{asset('style/style-user/style.css')}}">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> -->
-    <!-- font awesome -->
+    <link rel="icon" href="{{asset('img/B-Library Logo.png')}}" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e9e26f3697.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -43,7 +40,7 @@
             <ul>
                 <li><a href="/daftarkoleksi-user" class="regularFont">Daftar Koleksi</a></li>
                 <li><a href="/riwayatkunjungan" class="regularFont">Riwayat Kunjungan</a></li>
-                <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li>
+                {{-- <li><a href="#pusling-schedule" class="regularFont">Jadwal Pusling</a></li> --}}
             </ul>
         </div>
     </nav>
@@ -201,7 +198,7 @@
         </section>
 
         <!-- JADWAL PUSLING -->
-        <section class="pusling-schedule" id="pusling-schedule">
+        {{-- <section class="pusling-schedule" id="pusling-schedule">
             <h1 class="mediumFont" >Jadwal Perpustakaan Keliling</h1>
             <div class="slider-container-pusling">
 
@@ -278,7 +275,7 @@
                 </div>
 
             </div>
-        </section>
+        </section> --}}
     </div>
 
     <footer class="footer-distributed">

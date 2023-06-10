@@ -225,7 +225,7 @@ body{
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
     grid-gap: 20px;
 }
 
@@ -278,7 +278,6 @@ body{
 
 .visitHistory{
     position: relative;
-    display: grid;
     min-height: 500px;
     background-color: white;
     padding: 20px;
@@ -343,7 +342,6 @@ body{
 
 .newBook{
     position: relative;
-    display: grid;
     min-height: 500px;
     background-color: white;
     padding: 15px;
@@ -353,9 +351,19 @@ body{
 
 .newBook .title{
     display: flex;
-    align-items: start;
+    justify-content: space-between;
+    align-items: flex-start;
     color: #4865FC;
     padding: 10px;
+}
+
+.newBook .title .btn{
+    position: relative;
+    padding: 5px 10px;
+    background-color: #4865FC;
+    color: #FFFFFF;
+    border-radius: 3px;
+    text-decoration: none;
 }
 
 .newBook table{

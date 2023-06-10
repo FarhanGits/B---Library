@@ -79,7 +79,7 @@
 
                 <!-- Search Box -->
                 <div class="search">
-                    <form action="/dfbuku" method="GET">
+                    <form action="/pengembalianbuku" method="GET">
                         <label>
                             <input type="search" name="search" placeholder="Cari">
                             <ion-icon name="search-outline"></ion-icon>
@@ -116,9 +116,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data as $index => $item)
+                                @foreach ($dataRiwayat as $index => $item)
                                     <tr>
-                                        <td>{{$index + $data->firstItem()}}.</td>
+                                        <td>{{$index + $dataRiwayat->firstItem()}}.</td>
                                         <td>{{$item->user->namaAnggota}}</td>
                                         <td>{{$item->book->judulBuku}}</td>
                                         <td>{{$item->book->namaPengarang}}</td>
@@ -148,7 +148,7 @@
                             </tbody>
                         </table>
                         <div class="paginate">
-                            {{ $data->links() }}
+                            {{ $dataRiwayat->links() }}
                         </div>
     
                     </div>
