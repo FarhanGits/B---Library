@@ -132,7 +132,9 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if ($item->tanggalKembaliAsli == null)
+                                            @if ($item->tanggalPinjam > now())
+                                                <p href="" style="text-decoration: none">Buku Belum Dipinjam!</p>
+                                            @elseif ($item->tanggalKembaliAsli == null)
                                                 <p style="color: grey">Masih Dipinjam</p>
                                             @elseif ($item->tanggalKembaliAsli <= $item->tanggalKembali)
                                                 <p style="color: green">- Tidak denda -</p>
@@ -141,7 +143,11 @@
                                             @endif
                                         </td>
                                         <td class="editbutton">
-                                            <a href="/konfirmasipengembalian/{{$item->id}}"><i class="fa-solid fa-right-left" style="color: green"></i></a>
+                                            @if ($item->tanggalPinjam > now())
+                                                <p href="" style="text-decoration: none">Buku Belum Dipinjam!</p>
+                                            @elseif ($item->tanggalPinjam <= now())
+                                                <a href="/konfirmasipengembalian/{{$item->id}}"><i class="fa-solid fa-right-left" style="color: green"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
