@@ -124,7 +124,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Masukkan Gambar Buku</label>
-                                <input type="file" name="images" value="{{$data->images}}" class="form-control" required>
+                                <input type="file" name="images" value="{{$data->images}}" class="form-control" {{$data->images}} required>
                             </div>
                             <div class="button">
                                 <button class="saveAction" type="submit">Simpan</button>
