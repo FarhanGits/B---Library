@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth','hakakses:User']], function(){
     
     Route::get('/riwayatkunjungan', function(){
         $user = auth()->user();
-        $datapinjam = Peminjaman::with(['user', 'book'])->where('user_id', $user->id)->get();
+        $datapinjam = Peminjaman::orderBy('tanggalPinjam', 'desc')->with(['user', 'book'])->where('user_id', $user->id)->get();
         return view('User/riwayatkunjungan', compact('datapinjam'));
     })->name('riwayatkunjungan');
 

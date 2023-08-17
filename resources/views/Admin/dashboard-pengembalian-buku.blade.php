@@ -145,6 +145,8 @@
                                         <td class="editbutton">
                                             @if ($item->tanggalPinjam > now())
                                                 <p href="" style="text-decoration: none">Buku Belum Dipinjam!</p>
+                                            @elseif ($item->tanggalKembaliAsli != null)
+                                                <p href="" style="text-decoration: none">Buku Sudah Kembali!</p>
                                             @elseif ($item->tanggalPinjam <= now())
                                                 <a href="/konfirmasipengembalian/{{$item->id}}"><i class="fa-solid fa-right-left" style="color: green"></i></a>
                                             @endif

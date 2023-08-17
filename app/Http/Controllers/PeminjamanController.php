@@ -54,12 +54,12 @@ class PeminjamanController extends Controller
     public function bukuKembali(Request $request, $id) {
         $data = Peminjaman::with(['user', 'book'])->find($id);
         $data['tanggalKembaliAsli'] = Carbon::now();
-        $book = DfBuku::findOrFail($request->book_id);
-        $book->status = 'Available';
-        $book->save();
         // dd($book);
         $data->update($request->all());
         $data->save();
+        $book = DfBuku::findOrFail($request->book_id);
+        $book->status = 'Available';
+        $book->save();
         return redirect('/pengembalianbuku');
     }
 }
